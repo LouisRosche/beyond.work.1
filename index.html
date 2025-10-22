@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
+    <title>Mission St. Louis - Student Support Dashboard</title>
+    <meta name="title" content="Mission St. Louis - Student Support Dashboard" />
+    <meta name="description" content="Real-time student support analytics dashboard for Mission St. Louis Beyond School program" />
+
+    <!-- Security -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://unpkg.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.tile.openstreetmap.org; connect-src 'self' https://*.supabase.co wss://*.supabase.co;" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+
+    <!-- Leaflet CSS for Maps -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin="anonymous"
+    />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#0f172a" />
+
+    <!-- iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Mission STL" />
+
+    <!-- Accessibility -->
+    <meta name="color-scheme" content="dark light" />
+
+    <!-- Performance -->
+    <link rel="dns-prefetch" href="https://supabase.co" />
+    <link rel="preconnect" href="https://supabase.co" />
+
+    <style>
+      /* Loading screen to prevent flash */
+      #loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+      }
+
+      #loading-spinner {
+        width: 48px;
+        height: 48px;
+        border: 4px solid rgba(59, 130, 246, 0.2);
+        border-top-color: #3b82f6;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+
+      /* Hide loading screen when app loads */
+      #root:not(:empty) ~ #loading-screen {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Main App Container -->
+    <div id="root" role="main"></div>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen" aria-label="Loading application">
+      <div id="loading-spinner" role="status" aria-live="polite">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="sr-only">Skip to main content</a>
+
+    <!-- React App Script -->
+    <script type="module" src="/src/main.jsx"></script>
+
+    <!-- Noscript Fallback -->
+    <noscript>
+      <div style="
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background: #0f172a;
+        color: #cbd5e1;
+        font-family: sans-serif;
+        text-align: center;
+        padding: 20px;
+      ">
+        <div>
+          <h1 style="color: #ef4444; margin-bottom: 16px;">JavaScript Required</h1>
+          <p>This application requires JavaScript to be enabled in your browser.</p>
+          <p style="margin-top: 16px; font-size: 14px; color: #64748b;">
+            Please enable JavaScript and reload the page.
+          </p>
+        </div>
+      </div>
+    </noscript>
+  </body>
+</html>
