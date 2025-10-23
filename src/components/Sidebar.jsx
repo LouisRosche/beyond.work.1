@@ -330,26 +330,14 @@ const Sidebar = ({
                     className="student-item"
                     onClick={() => onStudentSelect?.(student)}
                     role="listitem"
-                    aria-label={`View details for ${student.name}, grade ${student.grade}, ${student.priority} priority`}
+                    aria-label={`${student.name}, grade ${student.grade}`}
                   >
                     <div className={`student-priority-indicator ${color}`}>
-                      <Icon size={14} aria-hidden="true" />
+                      <Icon size={12} aria-hidden="true" />
                     </div>
                     <div className="student-info">
                       <div className="student-name">{student.name}</div>
-                      <div className="student-meta">
-                        <span>Grade {student.grade}</span>
-                        <span className="meta-separator">•</span>
-                        <span>{student.site}</span>
-                      </div>
-                    </div>
-                    <div className="student-metrics">
-                      <div className="metric-badge">
-                        <span className="metric-value">
-                          {student.attendance?.toFixed(0) || 0}%
-                        </span>
-                        <span className="metric-label-small">Att.</span>
-                      </div>
+                      <div className="student-grade">Grade {student.grade}</div>
                     </div>
                   </button>
                 );
