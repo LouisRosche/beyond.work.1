@@ -40,19 +40,30 @@ export function useDashboardData() {
     setError(null)
 
     try {
-      // Fetch sites
+      // Fetch sites with student counts from dashboard_summary view
       const { data: sitesData, error: sitesError } = await supabase
-        .from('sites')
+        .from('dashboard_summary')
         .select('*')
         .order('name')
 
       if (sitesError) throw sitesError
-      setSites(sitesData || [])
 
-      // Build student query with filters
+      // Transform sites data to include coordinates object for MapView
+      const transformedSites = (sitesData || []).map(site => ({
+        ...site,
+        coordinates: {
+          lat: parseFloat(site.latitude),
+          lng: parseFloat(site.longitude)
+        },
+        studentCount: site.total_students,
+        highPriorityCount: site.high_priority_count
+      }))
+      setSites(transformedSites)
+
+      // Build student query with filters, join with sites to get site name
       let query = supabase
         .from('students')
-        .select('*', { count: 'exact' })
+        .select('*, sites(name, site_code)', { count: 'exact' })
         .eq('active', true)
 
       // Apply site filter
@@ -88,7 +99,14 @@ export function useDashboardData() {
 
       if (studentsError) throw studentsError
 
-      setStudents(studentsData || [])
+      // Transform student data to flatten site info
+      const transformedStudents = (studentsData || []).map(student => ({
+        ...student,
+        name: `${student.first_name} ${student.last_name}`,
+        site: student.sites?.name || 'Unknown Site'
+      }))
+
+      setStudents(transformedStudents)
       setTotalStudents(count || 0)
       setCurrentPage(page)
       setLastUpdate(new Date())
