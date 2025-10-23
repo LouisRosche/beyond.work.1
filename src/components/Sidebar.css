@@ -28,10 +28,10 @@
 /* Collapse Button */
 .sidebar-collapse-btn {
   position: absolute;
-  right: -16px;
+  right: -40px;
   top: 50%;
   transform: translateY(-50%);
-  width: 32px;
+  width: 40px;
   height: 64px;
   background: rgba(59, 130, 246, 0.9);
   border: 1px solid rgba(59, 130, 246, 0.3);
@@ -47,11 +47,11 @@
 
 .sidebar-collapse-btn:hover {
   background: rgba(59, 130, 246, 1);
-  width: 36px;
+  width: 44px;
 }
 
 .sidebar-collapsed .sidebar-collapse-btn {
-  right: -32px;
+  right: -40px;
   border-radius: 8px;
 }
 

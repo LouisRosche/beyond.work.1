@@ -344,6 +344,8 @@
   font-size: 11px !important;
   padding: 4px 8px !important;
   border-radius: 4px !important;
+  margin-bottom: 8px !important;
+  margin-right: 8px !important;
 }
 
 .leaflet-control-attribution a {
