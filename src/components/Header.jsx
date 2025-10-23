@@ -96,7 +96,7 @@ const Header = ({
             <div className="metric-content">
               <div className="metric-label">Avg Attendance</div>
               <div className="metric-value" aria-live="polite">
-                {loading ? '...' : `${(avgAttendance || 0).toFixed(1)}%`}
+                {loading ? '...' : `${Number(avgAttendance || 0).toFixed(1)}%`}
               </div>
             </div>
           </div>
@@ -108,7 +108,7 @@ const Header = ({
             <div className="metric-content">
               <div className="metric-label">Avg Engagement</div>
               <div className="metric-value" aria-live="polite">
-                {loading ? '...' : `${(avgEngagement || 0).toFixed(1)}%`}
+                {loading ? '...' : `${Number(avgEngagement || 0).toFixed(1)}%`}
               </div>
             </div>
           </div>
