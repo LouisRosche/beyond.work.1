@@ -84,7 +84,7 @@ const MapView = ({
     if (sites.length === 0) return defaultCenter;
 
     // If a site is selected, center on it
-    const selected = sites.find((s) => s.name === selectedSite);
+    const selected = sites.find((s) => s.id === selectedSite);
     if (selected && selected.coordinates) {
       return [selected.coordinates.lat, selected.coordinates.lng];
     }
@@ -101,7 +101,7 @@ const MapView = ({
 
   // Handle marker click
   const handleMarkerClick = (site) => {
-    onSiteSelect?.(site.name);
+    onSiteSelect?.(site.id);
   };
 
   // Handle keyboard navigation for markers
@@ -159,12 +159,12 @@ const MapView = ({
         {sites.map((site) => {
           if (!site.coordinates) return null;
 
-          const isSelected = selectedSite === site.name;
+          const isSelected = selectedSite === site.id;
           const priority = getSitePriority(site);
 
           return (
             <Marker
-              key={site.name}
+              key={site.id}
               position={[site.coordinates.lat, site.coordinates.lng]}
               icon={createCustomIcon(isSelected, priority)}
               eventHandlers={{

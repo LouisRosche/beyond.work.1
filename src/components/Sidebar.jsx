@@ -69,7 +69,7 @@ const Sidebar = ({
 
     // Site filter
     if (selectedSite && selectedSite !== 'all') {
-      if (student.site !== selectedSite) return false;
+      if (student.site_id !== selectedSite) return false;
     }
 
     return true;
@@ -90,8 +90,8 @@ const Sidebar = ({
   };
 
   // Handle site selection
-  const handleSiteSelect = (siteName) => {
-    onSiteSelect?.(siteName);
+  const handleSiteSelect = (siteId) => {
+    onSiteSelect?.(siteId);
     setSiteDropdownOpen(false);
   };
 
@@ -141,7 +141,7 @@ const Sidebar = ({
   // Get selected site name
   const selectedSiteName = selectedSite === 'all' || !selectedSite
     ? 'All Sites'
-    : sites.find((s) => s.name === selectedSite)?.name || selectedSite;
+    : sites.find((s) => s.id === selectedSite)?.name || 'Selected Site';
 
   // Count students by priority
   const priorityCounts = {
@@ -220,15 +220,15 @@ const Sidebar = ({
                 </li>
                 {sites.map((site) => (
                   <li
-                    key={site.name}
+                    key={site.id}
                     role="option"
-                    aria-selected={selectedSite === site.name}
+                    aria-selected={selectedSite === site.id}
                   >
                     <button
                       className={`site-option ${
-                        selectedSite === site.name ? 'selected' : ''
+                        selectedSite === site.id ? 'selected' : ''
                       }`}
-                      onClick={() => handleSiteSelect(site.name)}
+                      onClick={() => handleSiteSelect(site.id)}
                     >
                       <MapPin size={14} aria-hidden="true" />
                       <span>{site.name}</span>
