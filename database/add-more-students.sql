@@ -33,7 +33,7 @@ UNION ALL
 SELECT
   'STU0006', 'Aaliyah', 'Jones', id, 6, 0.28, 'low', 96, 94, 8.1, 8.5, 0, 4.8,
   ARRAY['Reading', 'Leadership', 'Peer mentoring'],
-  ARRAY[],
+  ARRAY[]::text[],
   ARRAY['Enrichment opportunities', 'Advanced coursework'],
   'Exceptional student, leadership potential',
   CURRENT_DATE - INTERVAL '2 days'
@@ -69,7 +69,7 @@ UNION ALL
 SELECT
   'STU0010', 'Nia', 'Martinez', id, 9, 0.22, 'low', 97, 96, 9.2, 8.8, 0, 4.9,
   ARRAY['STEM', 'Robotics', 'Math competitions'],
-  ARRAY[],
+  ARRAY[]::text[],
   ARRAY['AP preparation', 'College visits'],
   'Outstanding student, STEM focus',
   CURRENT_DATE - INTERVAL '1 day'
@@ -105,7 +105,7 @@ UNION ALL
 SELECT
   'STU0014', 'Mia', 'Jackson', id, 6, 0.31, 'low', 94, 92, 8.3, 7.9, 0, 4.6,
   ARRAY['Reading', 'Art', 'Helping others'],
-  ARRAY[],
+  ARRAY[]::text[],
   ARRAY['Peer tutoring opportunities', 'Enrichment'],
   'Compassionate student, excels academically',
   CURRENT_DATE - INTERVAL '1 day'
@@ -141,7 +141,7 @@ UNION ALL
 SELECT
   'STU0018', 'Emma', 'Lewis', id, 6, 0.26, 'low', 95, 93, 8.5, 8.2, 0, 4.7,
   ARRAY['Science experiments', 'Research', 'Writing'],
-  ARRAY[],
+  ARRAY[]::text[],
   ARRAY['Science fair', 'Advanced projects'],
   'Curious mind, loves hands-on science',
   CURRENT_DATE - INTERVAL '1 day'
@@ -177,7 +177,7 @@ UNION ALL
 SELECT
   'STU0022', 'Isabella', 'Young', id, 6, 0.33, 'low', 93, 91, 8.1, 7.8, 0, 4.5,
   ARRAY['Dance', 'Performance arts', 'Academics'],
-  ARRAY[],
+  ARRAY[]::text[],
   ARRAY['Arts enrichment', 'Leadership opportunities'],
   'Well-rounded student, strong performer',
   CURRENT_DATE - INTERVAL '1 day'
@@ -213,7 +213,7 @@ UNION ALL
 SELECT
   'STU0026', 'Charlotte', 'Scott', id, 9, 0.29, 'low', 96, 94, 8.9, 8.6, 0, 4.8,
   ARRAY['All subjects', 'Student government', 'Volunteering'],
-  ARRAY[],
+  ARRAY[]::text[],
   ARRAY['College prep', 'Scholarship opportunities', 'Leadership roles'],
   'Exceptional all-around student, college-bound',
   CURRENT_DATE - INTERVAL '1 day'
