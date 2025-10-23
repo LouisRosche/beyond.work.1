@@ -209,39 +209,12 @@ const MapView = ({
                       <span>{site.address}</span>
                     </div>
                   )}
-
-                  <button
-                    className="popup-action-btn"
-                    onClick={() => handleMarkerClick(site)}
-                    aria-label={`View students at ${site.name}`}
-                  >
-                    View Students
-                  </button>
                 </div>
               </Popup>
             </Marker>
           );
         })}
       </MapContainer>
-
-      {/* Map Legend */}
-      <div className="map-legend" role="complementary" aria-label="Map legend">
-        <h4 className="legend-title">Site Priority</h4>
-        <div className="legend-items">
-          <div className="legend-item">
-            <div className="legend-marker legend-marker-high"></div>
-            <span>High Priority (5+ students)</span>
-          </div>
-          <div className="legend-item">
-            <div className="legend-marker legend-marker-medium"></div>
-            <span>Medium Priority (2-5 students)</span>
-          </div>
-          <div className="legend-item">
-            <div className="legend-marker legend-marker-low"></div>
-            <span>Low Priority (0-2 students)</span>
-          </div>
-        </div>
-      </div>
 
       {/* Site Count Badge */}
       {sites.length > 0 && (

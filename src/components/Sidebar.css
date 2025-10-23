@@ -320,7 +320,9 @@
 
 .search-clear {
   position: absolute;
-  right: 12px;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
   background: transparent;
   border: none;
   color: #64748b;
@@ -351,6 +353,7 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 12px;
+  padding: 0 4px;
 }
 
 .student-list-count {

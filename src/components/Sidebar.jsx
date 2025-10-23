@@ -9,7 +9,7 @@ import {
   MapPin,
   ChevronLeft,
   ChevronRight,
-  Filter
+  Menu
 } from 'lucide-react';
 import './Sidebar.css';
 
@@ -170,7 +170,7 @@ const Sidebar = ({
         {/* Header */}
         <div className="sidebar-header">
           <div className="sidebar-title-section">
-            <Filter className="sidebar-icon" aria-hidden="true" />
+            <Menu className="sidebar-icon" aria-hidden="true" />
             <h2 className="sidebar-title">Filters</h2>
           </div>
           <div className="student-count" aria-live="polite">
